@@ -2,9 +2,9 @@
 
 ## Install
 
-	$ dnf install -y pipenv
-	$ pipenv install
+	$ python -m pip install --user poetry
 
 ## Run
-
+	
+	$ poetry shell
 	$ python app.py

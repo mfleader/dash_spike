@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dash_spike"
+version = "0.1.0"
+description = ""
+authors = ["mleader <mleader@redhat.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+dash = "1.17.0"
+pandas = "pandasticsearch"
+elasticsearch = "dash-bootstrap-components"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
