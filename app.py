@@ -193,7 +193,7 @@ def toggle_accordion(n1, n2, n3, n4,n5, n6,
 
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Performance Pipelines'),
+    html.H1(children='Performance and Scale'),
     html.Div(children='''
         Dash: A web application framework for PSE
     '''),
