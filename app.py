@@ -141,10 +141,15 @@ status = {
 }
 
 
-accordion = html.Div(
-    [make_item(i+1,item[0],item[1]) for i,item in enumerate(status.items())], className="accordion"
-)
+# accordion = html.Div(
+#     [make_item(i+1,item[0],item[1]) for i,item in enumerate(status.items())], className="accordion"
+# )
 
+clouds = html.Div([
+    dbc.Row(
+        [make_item(i+1,item[0],item[1]) for i,item in enumerate(status.items())] 
+    )
+])
 
 
 
@@ -193,8 +198,8 @@ app.layout = html.Div(children=[
         Dash: A web application framework for PSE
     '''),
     # collapse0,
-    accordion,
-    # clouds,
+    # accordion,
+    clouds,
     # generate_table(uperf_df())
 ])
 
