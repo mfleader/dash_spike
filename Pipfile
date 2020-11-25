@@ -6,9 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-dash = "*"
+dash = "==1.17.0"
 elasticsearch = "*"
 pandasticsearch = "*"
+pandas = "*"
+dash-bootstrap-components = "*"
 
 [requires]
 python_version = "3.8"
