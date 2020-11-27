@@ -101,42 +101,38 @@ aws_card = dbc.Card(
     )
 )
 
+def make_card(header, status, df):
+    return dbc.Card([
+        dbc.CardHeader(header),
+        dbc.Card(
+            [dbc.Table.from_dataframe(df, striped=True, bordered=True, hover=True)],
+            color = status
+        )
+    ])
 
-uperf_card = dbc.Card([
-        dbc.CardHeader('uperf'),
-    dbc.CardBody(
-        [
-            html.H4('uperf', className='card-title'),
-            generate_table(uperf_res)
-        ]
-    )
-],
-color = 'success'
-)
 
-fio_card = dbc.Card([
-        dbc.CardHeader('fio'),
-    dbc.CardBody(
-        [
-            html.H4('uperf', className='card-title'),
-            generate_table(uperf_res)
-        ]
-    )
-],
-color = 'danger'
-)
+# build_card = dbc.Card([
+#     dbc.CardHeader('build'),
+#     dbc.Card(
+#         [
+#             # html.H4('uperf', className='card-title'),
+#             # generate_table(uperf_res)
+#             dbc.Table.from_dataframe(uperf_res, striped=True, bordered=True, hover=True)
+#         ],
+#         color = 'success'
+#     )
+# ])
 
-vegeta_card = dbc.Card([
-    dbc.CardHeader('vegeta'),
-    dbc.CardBody(
-        [
-            html.H4('vegeta', className='card-title'),
-            generate_table(uperf_res)
-        ]
-    ),
-],
-color = 'warning'
-)
+build_card = make_card('build', 'warning', uperf_res)
+install_card = make_card('install', 'success', uperf_res)
+uperf_card = make_card('uperf', 'success', uperf_res)
+http_card = make_card('http test', 'danger', uperf_res)
+kubelet_card = make_card('kubelet density', 'success', uperf_res)
+objdens_card = make_card('object density', 'success', uperf_res)
+upgrade_card = make_card('upgrade', 'success', uperf_res)
+
+
+
 
 
 
@@ -153,7 +149,9 @@ table = dbc.Table.from_dataframe(uperf_res, striped=True, bordered=True, hover=T
 
 aws_row = html.Div([
     dbc.Row(
-        [aws_card, uperf_card, fio_card, vegeta_card] 
+        [aws_card, build_card, install_card, uperf_card,
+        http_card,kubelet_card, objdens_card, upgrade_card
+        ] 
     )
 ])
 
