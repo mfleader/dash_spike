@@ -23,14 +23,14 @@ uperf_res = pd.DataFrame.from_records(
 def dummy_data():
     return pd.DataFrame.from_records(
         data=(
-            ('aws', 'danger'),
+            ('4.6 nightly', 'aws'),
             ('aws future', 'success'),
             ('aws next', 'warning'),
             ('aws ovn next', 'success'),
             ('azure', 'danger'),
             ('gcp', 'danger')
         ),
-        columns=['pipeline', 'status']
+        columns=['ocp', 'cloud']
     )
 
 
@@ -54,14 +54,22 @@ app = dash.Dash(__name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 
-# clouds = [
-#     'aws',
-#     'aws future',
-#     'aws next',
-#     'aws ovn next',
-#     'azure',
-#     'gcp'
-# ]
+cloud_pipelines = [
+    'aws',
+    'aws future',
+    'aws next',
+    'aws ovn next',
+    'azure',
+    'gcp'
+]
+
+ocp_versions = [
+    '4.6 nightly',
+    '4.6 ovn nightly',
+    '4.7 nightly',
+    '4.7 ovn nightly',
+    '4.8 nightly'
+]
 
 
 
@@ -144,9 +152,6 @@ upgrade_card = make_card('upgrade', 'success', uperf_res)
 # ])
 
 
-table = dbc.Table.from_dataframe(uperf_res, striped=True, bordered=True, hover=True)
-
-
 aws_row = html.Div([
     dbc.Row(
         [aws_card, build_card, install_card, uperf_card,
@@ -156,7 +161,6 @@ aws_row = html.Div([
 ])
 
 
-
 app.layout = html.Div(children=[
     html.H1(children='Performance and Scale'),
     html.Div(children='''
@@ -164,8 +168,6 @@ app.layout = html.Div(children=[
     '''),
     aws_row
 ])
-
-
 
 
 if __name__ == '__main__':
