@@ -2,9 +2,10 @@
 
 ## Install
 
-	$ python -m pip install --user poetry
+	$ python -m pip install --user pipenv
+	$ pipenv install
 
 ## Run
 	
-	$ poetry shell
+	$ pipenv shell
 	$ python app.py
